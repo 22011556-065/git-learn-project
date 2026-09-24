@@ -1,0 +1,138 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f3f5f8;
+  color: #1f2430;
+}
+
+.wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+header h1 {
+  margin: 0 0 4px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+header .sub {
+  margin: 0 0 28px;
+  color: #5a6474;
+  font-size: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e3e7ed;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #5a6474;
+  gap: 6px;
+}
+
+.form-grid input {
+  font-size: 14px;
+  padding: 9px 10px;
+  border: 1px solid #d3d9e2;
+  border-radius: 6px;
+  color: #1f2430;
+}
+
+.form-grid input:focus {
+  outline: 2px solid #3d6bf3;
+  outline-offset: 1px;
+}
+
+.form-grid button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: #3d6bf3;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-grid button:hover {
+  background: #2f57d0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+th {
+  color: #5a6474;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.empty {
+  color: #5a6474;
+  font-size: 14px;
+}
+
+.danger {
+  background: none;
+  border: 1px solid #e3e7ed;
+  color: #c4392b;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.danger:hover {
+  background: #fdeceb;
+}
+
+.alert {
+  background: #fdeceb;
+  color: #c4392b;
+  border: 1px solid #f5c6c0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 560px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Register</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Student Register</h1>
+      <p class="sub">Add a student below — every entry is saved to MongoDB.</p>
+    </header>
+
+    <% if (error) { %>
+      <div class="alert"><%= error %></div>
+    <% } %>
+
+    <section class="card">
+      <h2>Add Student</h2>
+      <form action="/students" method="POST" class="form-grid">
+        <label>
+          Full name
+          <input type="text" name="name" placeholder="e.g. Ayesha Khan" required>
+        </label>
+        <label>
+          Roll number
+          <input type="text" name="rollNumber" placeholder="e.g. 24-CS-101" required>
+        </label>
+        <label>
+          Class / Section
+          <input type="text" name="className" placeholder="e.g. BSCS-3A" required>
+        </label>
+        <label>
+          Email (optional)
+          <input type="email" name="email" placeholder="e.g. ayesha@example.com">
+        </label>
+        <button type="submit">Add Student</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Students (<%= students.length %>)</h2>
+
+      <% if (students.length === 0) { %>
+        <p class="empty">No students yet. Add the first one above.</p>
+      <% } else { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll No.</th>
+              <th>Class</th>
+              <th>Email</th>
+              <th>Added</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% students.forEach(function(s) { %>
+              <tr>
+                <td><%= s.name %></td>
+                <td><%= s.rollNumber %></td>
+                <td><%= s.className %></td>
+                <td><%= s.email || '—' %></td>
+                <td><%= new Date(s.createdAt).toLocaleDateString() %></td>
+                <td>
+                  <form action="/students/<%= s._id %>/delete" method="POST">
+                    <button type="submit" class="danger">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } %>
+    </section>
+  </div>
+</body>
+</html>
